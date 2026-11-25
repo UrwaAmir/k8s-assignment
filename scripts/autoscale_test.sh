@@ -20,7 +20,7 @@ sleep 2
 run_phase() {   # name rate seconds
   local N=$1 R=$2 S=$3
   local SESS=$((R*S))
-  python3 scripts/gen_sessions.py $SESS > /tmp/sess_$N.txt
+  python3 scripts/gen_sessions.py $((SESS>900?900:SESS)) > /tmp/sess_$N.txt
   local T0=$(date +%s)
   echo "phase $N: $R req/s for $S s (start $(date +%T))"
   httperf --server emi.local --port 80 --wsesslog=$SESS,0,/tmp/sess_$N.txt \

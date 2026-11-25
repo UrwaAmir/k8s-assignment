@@ -1,0 +1,9 @@
+deployment.apps/emi-web scaled
+deployment "emi-web" successfully rolled out
+horizontalpodautoscaler.autoscaling/emi-web created
+phase 1_low: 10 req/s for 120 s (start 16:39:39)
+phase 2_high: 100 req/s for 300 s (start 16:41:40)
+phase 3_low: 10 req/s for 180 s (start 16:46:40)
+AUTOSCALE TEST DONE 16:49:42
+NAME      REFERENCE            TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+emi-web   Deployment/emi-web   cpu: 58%/50%   1         5         5          10m

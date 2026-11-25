@@ -12,7 +12,7 @@ for REP in 1 2 3; do
     if grep -q "^$REP,$RATE," results/summary.csv; then echo "skip r$REP q$RATE"; continue; fi
     echo "=== replicas=$REP rate=$RATE $(date +%T) ==="
     ./scripts/run_one.sh $REP $RATE
-    sleep 30   # cool down
+    sleep 10   # cool down
   done
 done
 echo "ALL DONE $(date +%T)"

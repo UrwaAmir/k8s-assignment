@@ -10,7 +10,7 @@ kubectl scale deployment emi-web --replicas=$REP -n emi
 kubectl rollout status deployment/emi-web -n emi --timeout=180s
 sleep 20   # let pods settle and old pods terminate
 
-python3 scripts/gen_sessions.py $SESS > /tmp/sessions_$TAG.txt
+python3 scripts/gen_sessions.py $((SESS>900?900:SESS)) > /tmp/sessions_$TAG.txt
 python3 scripts/profile.py results/profile/$TAG &
 PROF=$!
 sleep 2
